@@ -1,8 +1,11 @@
 # maya_python_scripts
-python scripts for maya
-
-playblaster.py - script for playblast
+Folders:
 
 playblaster - advanced playblast with perforce & shotgun integration
 
 studioLibs - libs and functions for all scripts
+
+
+Files:
+
+playblaster.py - script for playblast
