@@ -11,43 +11,68 @@ class studioPerforce(object):
         self.perforceLocal = local
 
     #----------------------------------------------------------------------
-    def findAsset(self, extension='*.mb', folder='...', count=10):
+    def add(self, filename):
         self.p4.connect()
                 
-        query = self.perforcePrefix + folder + '/' + extension
-    
+        res = []
         try:
-            res = self.p4.run('files', '-e', '-m ' + str(count), query)
+            res = self.p4.run('add', filename)
         except P4Exception:
-            res = []
-        
+            for e in self.p4.errors:
+                print(e)
+            for e in self.p4.warnings:
+                print(e)
+               
         self.p4.disconnect()
-        
         return res
 
     #----------------------------------------------------------------------
-    def getAssetTree(self, folder='...', extension=''):
+    def checkout(self, filename):
         self.p4.connect()
             
-        query = self.perforcePrefix + folder + extension
-        res = self.p4.run('files', '-e', query)
-    
+        res = []
+        try:
+            res = self.p4.run('edit', filename)
+        except P4Exception:
+            for e in self.p4.errors:
+                print(e)
+            for e in self.p4.warnings:
+                print(e)
+            
         self.p4.disconnect()
-    
         return res
 
     #----------------------------------------------------------------------
-    def convertFileListToTree(self, data):
-        out = {}
-        for current in data:
-            data = current['depotFile'].split('/')[4:]
-            level = out
-            for cur in data:
-                if cur not in level:
-                    level[cur] = {}
-                level = level[cur]
-        
-        return out
+    def submit(self, filename, description):
+        self.p4.connect()
+                
+        res = []
+        try:
+            res = self.p4.run('submit', '-f revertunchanged', '-d '+description, filename)
+        except P4Exception:
+            for e in self.p4.errors:
+                print(e)
+            for e in self.p4.warnings:
+                print(e)
+                
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def revert(self, filename):
+        self.p4.connect()
+                
+        res = []
+        try:
+            res = self.p4.run('revert', filename)
+        except P4Exception:
+            for e in self.p4.errors:
+                print(e)
+            for e in self.p4.warnings:
+                print(e)
+                
+        self.p4.disconnect()
+        return res
 
     #----------------------------------------------------------------------
     def getLatestRevision(self, path, force=False):
@@ -71,8 +96,103 @@ class studioPerforce(object):
                 warnings.append(e)
         
         self.p4.disconnect()
-    
         return {'result': res, 'errors': errors, 'warnings': warnings}
+
+    #----------------------------------------------------------------------
+    def getCheckedOutData(self, filename):
+        self.p4.connect()
+        
+        res = []
+        try:
+            res = self.p4.run('opened', '-a', filename)
+        except P4Exception:
+            for e in self.p4.errors:
+                print(e)
+            for e in self.p4.warnings:
+                print(e)
+        
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def findAsset(self, extension='*.mb', folder='...', count=10):
+        self.p4.connect()
+                
+        query = self.perforcePrefix + folder + '/' + extension
+        try:
+            res = self.p4.run('files', '-e', '-m ' + str(count), query)
+        except P4Exception:
+            res = []
+        
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def getAssetTree(self, folder='...', extension=''):
+        self.p4.connect()
+            
+        query = self.perforcePrefix + folder + extension
+        res = self.p4.run('files', '-e', query)
+    
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def syncPreview(self, folder='...', extension='.png'):
+        self.p4.connect()
+
+        res = []
+        query = self.perforcePrefix + folder + extension
+        try:
+            res = self.p4.run('sync', query)
+        except P4Exception:
+            pass
+    
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def getMyCheckoutedFiles(self, folder='...', extension='.mb'):
+        user = self.getCurrentUser()
+        self.p4.connect()
+            
+        queryString = self.perforcePrefix + folder + extension
+        res = self.p4.run('opened', '-u', user, queryString)
+
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def getAllUsers(self):
+        self.p4.connect()
+            
+        res = self.p4.run('users')
+    
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def getWorspace(self, user):
+        self.p4.connect()
+            
+        res = self.p4.run('workspaces', '-u', user)
+    
+        self.p4.disconnect()
+        return res
+
+    #----------------------------------------------------------------------
+    def convertFileListToTree(self, data):
+        out = {}
+        for current in data:
+            data = current['depotFile'].split('/')[4:]
+            level = out
+            for cur in data:
+                if cur not in level:
+                    level[cur] = {}
+                level = level[cur]
+        
+        return out
+
 
     #----------------------------------------------------------------------
     def syncReferences(self, filename, files=False, lenFnc=None, countFnc=None, types=[], statusFnc=None):
@@ -103,106 +223,6 @@ class studioPerforce(object):
                 countFnc(num)
 
         return data
-
-    #----------------------------------------------------------------------
-    def getCheckedOutData(self, filename):
-        self.p4.connect()
-        
-        res = []
-        try:
-            res = self.p4.run('opened', '-a', filename)
-        except P4Exception:
-            for e in self.p4.errors:
-                print(e)
-            for e in self.p4.warnings:
-                print(e)
-        
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def checkout(self, filename):
-        self.p4.connect()
-            
-        res = []
-        try:
-            res = self.p4.run('edit', filename)
-        except P4Exception:
-            for e in self.p4.errors:
-                print(e)
-            for e in self.p4.warnings:
-                print(e)
-            
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def submit(self, filename, description):
-        self.p4.connect()
-                
-        res = []
-        try:
-            res = self.p4.run('submit', '-f revertunchanged', '-d '+description, filename)
-        except P4Exception:
-            for e in self.p4.errors:
-                print(e)
-            for e in self.p4.warnings:
-                print(e)
-                
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def revert(self, filename):
-        self.p4.connect()
-                
-        res = []
-        try:
-            res = self.p4.run('revert', filename)
-        except P4Exception:
-            for e in self.p4.errors:
-                print(e)
-            for e in self.p4.warnings:
-                print(e)
-                
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def add(self, filename):
-        self.p4.connect()
-                
-        res = []
-        try:
-            res = self.p4.run('add', filename)
-        except P4Exception:
-            for e in self.p4.errors:
-                print(e)
-            for e in self.p4.warnings:
-                print(e)
-                
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def syncPreview(self, folder='...', extension='.png'):
-        self.p4.connect()
-
-        res = []
-        query = self.perforcePrefix + folder + extension
-        try:
-            res = self.p4.run('sync', query)
-        except P4Exception:
-            pass
-    
-        self.p4.disconnect()
-
-        return res
 
     #----------------------------------------------------------------------
     def getCurrentUser(self):
@@ -238,38 +258,5 @@ class studioPerforce(object):
             self.add(destName)
     
         self.submit(destName, description)
-    
+
         return destName
-
-    #----------------------------------------------------------------------
-    def getMyCheckoutedFiles(self, folder='...', extension='.mb'):
-        user = self.getCurrentUser()
-        queryString = self.perforcePrefix + folder + extension
-    
-        self.p4.connect()
-            
-        res = self.p4.run('opened', '-u', user, queryString)
-        
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def getAllUsers(self):
-        self.p4.connect()
-            
-        res = self.p4.run('users')
-    
-        self.p4.disconnect()
-    
-        return res
-
-    #----------------------------------------------------------------------
-    def getWorspace(self, user):
-        self.p4.connect()
-            
-        res = self.p4.run('workspaces', '-u', user)
-    
-        self.p4.disconnect()
-    
-        return res
