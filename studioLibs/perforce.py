@@ -4,7 +4,7 @@ from P4 import P4,P4Exception
 
 
 class studioPerforce(object):
-    def __init__(self, prefix, local):
+    def __init__(self, prefix='', local=''):
         self.p4 = P4()
         self.p4.exception_level = 2
         self.perforcePrefix = prefix
