@@ -1,0 +1,424 @@
+/* --------------------------------------------------------------- */
+QWidget { 
+	background: #444444; 
+	color: #bdbdbd; 
+	selection-color: #ffffff;
+	selection-background-color: #3498DB;
+}
+
+/* --------------------------------------------------------------- */
+/* QGroupBox                                                       */
+/* --------------------------------------------------------------- */
+QGroupBox {
+	border: 1px solid #2b2b2b; 
+	border-radius: 0px;
+	margin-top: 6px;
+}
+
+QGroupBox:title {
+	subcontrol-origin: padding;
+	-position: top left; /* position at the top center */
+	top: -8px;
+	left: 8px;
+}
+
+
+/* --------------------------------------------------------------- */
+/* QLineEdit                                                       */
+/* --------------------------------------------------------------- */
+QLineEdit { 
+	padding: 1px; 
+	border: 1px solid #2b2b2b;
+	border-radius: 0px; 
+	background:#2b2b2b; 
+	min-height: 30px;
+	margin: 1px;
+}
+
+QLineEdit:hover, QLineEdit:focus {
+	border: 1px solid #5285a6; 
+}
+
+QLineEdit::disabled { 
+	background-color:#444444;
+}
+
+/* --------------------------------------------------------------- */
+/* QSpinBox                                                        */
+/* --------------------------------------------------------------- */
+QSpinBox, QDoubleSpinBox { 
+	padding: 0px; 
+	border: 1px solid #2b2b2b; 
+	border-radius: 0px; 
+	min-height: 30px;
+	background: #2b2b2b; 
+}
+
+QSpinBox:hover, QSpinBox:focus, QDoubleSpinBox:hover, QDoubleSpinBox:focus {
+	border: 1px solid #5285a6; 
+}
+
+QSpinBox:up-button, QDoubleSpinBox:up-button {
+	subcontrol-position: center right;
+	min-height: 30px;
+
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_right.png);
+	width: 30px;
+}
+
+QSpinBox:up-button:pressed, QDoubleSpinBox:up-button:pressed {
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_right_pressed.png);
+}
+
+QSpinBox:down-button, QDoubleSpinBox:down-button {
+	subcontrol-position: center left;
+	min-height: 30px;
+
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_left.png);
+	width: 30px;
+}
+
+QSpinBox:down-button:pressed, QDoubleSpinBox:down-button:pressed {
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_left_pressed.png);
+}
+QSpinBox:disabled { 
+	background:#f0f0f0; 
+}
+QDoubleSpinBox:disabled { 
+	background:#f0f0f0; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QCheckBox                                                       */
+/* --------------------------------------------------------------- */
+QCheckBox {
+	spacing: 5px;
+}
+
+QCheckBox::indicator {
+	width: 30px;
+	height: 30px;
+}
+
+QCheckBox::indicator:unchecked {
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/check_box_unchecked.png);
+	width: 30px;
+}
+
+QCheckBox::indicator:checked {
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/check_box_checked.png);
+	width: 30px;
+}
+
+
+/* --------------------------------------------------------------- */
+/* QPushButton                                                     */
+/* --------------------------------------------------------------- */
+QPushButton { 
+	border-radius: 1px; 
+	background: #5285a6; 
+	color:#bdbdbd; 
+}
+
+QPushButton:disabled { 
+	background:#2b2b2b; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QTabWidget                                                      */
+/* --------------------------------------------------------------- */
+QTabWidget:pane { 
+	border: 1px solid #2b2b2b;
+	border-radius: 0px; 
+}
+
+QTabBar:tab { 
+	background-color: #363636; 
+	border-bottom: 4px solid #1a1a1a; 
+	padding: 5px; 
+}
+
+QTabBar:tab:selected { 
+	background-color: #6d6d6d; 
+	padding: 5px; 
+}
+
+QTabBar:tab:hover { 
+	border-bottom: 4px solid #5285a6; 
+	padding: 5px; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QComboBox                                                       */
+/* --------------------------------------------------------------- */
+QComboBox { 
+	border-style: solid; 
+	border: 1px solid #2b2b2b; 
+	border-radius: 0px; 
+	background:#2b2b2b; 
+	color: #bdbdbd; 
+	min-height: 30px;
+}
+
+QComboBox:drop-down {
+	width: 30px;
+	height: 30px;
+	border-left-width: 0px;
+
+	border-top-right-radius: 3px; /* same radius as the QComboBox */
+	border-bottom-right-radius: 3px;
+}
+
+QComboBox:down-arrow {
+	image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_down.png);
+	width: 30px;
+	height: 30px;
+}
+
+QComboBox:hover, QComboBox:focus {
+	border: 1px solid #5285a6; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QSlider                                                         */
+/* --------------------------------------------------------------- */
+QSlider::groove:horizontal {
+	border: 1px solid #bbb;
+	background: white;
+	height: 10px;
+	border-radius: 0px;
+}
+
+QSlider::sub-page:horizontal {
+	background: #5285a6;
+	border: 1px solid #2b2b2b;
+	height: 10px;
+	border-radius: 0px;
+}
+
+QSlider::add-page:horizontal {
+	background: #2b2b2b;
+	border: 1px solid #2b2b2b;
+	height: 10px;
+	border-radius: 0px;
+}
+
+QSlider::handle:horizontal {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:1,  stop:0 #eee, stop:1 #ccc);
+	border: 1px solid #2b2b2b;
+	width: 20px;
+	margin-top: -6px;
+	margin-bottom: -6px;
+	border-radius: 10px;
+}
+
+QSlider::handle:horizontal:hover {
+	background: qlineargradient(x1:0, y1:0, x2:1, y2:1,  stop:0 #fff, stop:1 #ddd);
+	border: 1px solid #444;
+	border-radius: 10px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+	background: #bbb;
+	border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+	background: #eee;
+	border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+	background: #eee;
+	border: 1px solid #aaa;
+	border-radius: 0px;
+}
+
+
+/* --------------------------------------------------------------- */
+/* QListWidget                                                     */
+/* --------------------------------------------------------------- */
+QListWidget {
+	padding: 0px; 
+	border-style: solid; 
+	border: 1px solid #a0a0a0; 
+	border-radius: 1px; 
+	min-height: 30px;
+	background: #2b2b2b; 
+}
+
+QListWidget:hover, QListWidget:focus{
+	border: 1px solid #3498DB; 
+}
+
+QListWidget:item {
+	background: #2b2b2b; 
+}
+
+QListWidget:item:selected {
+	background: #3498DB; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QTableWidget                                                    */
+/* --------------------------------------------------------------- */
+QTableWidget {
+	padding: 0px; 
+	border-style: solid; 
+	border: 1px solid #a0a0a0; 
+	border-radius: 1px; 
+	min-height: 30px;
+	background: #fff; 
+}
+
+QTableWidget:hover, QListWidget:focus{
+	border: 1px solid #3498DB; 
+}
+
+QTableWidget:item {
+	background: #ffffff; 
+}
+
+QTableWidget:item:selected {
+	background: #3498DB; 
+}
+
+
+/* --------------------------------------------------------------- */
+/* QTreeWidget                                                     */
+/* --------------------------------------------------------------- */
+QTreeWidget{
+	padding: 0px; 
+	border: 1px solid #a0a0a0; 
+	border-radius: 0px; 
+	min-height: 30px;
+	background: #2b2b2b; 
+}
+
+QTreeWidget:hover, QTreeWidget:focus{
+	border: 1px solid #3498DB; 
+}
+
+QTreeWidget:item {
+	background: #2b2b2b; 
+}
+
+QTreeWidget:item:selected {
+	background: #3498DB; 
+}
+
+
+QTreeWidget:branch {
+        background: #2b2b2b;
+}
+
+QTreeWidget:branch:has-children:!has-siblings:closed,
+QTreeWidget:branch:closed:has-children:has-siblings {
+        border-image: none;
+        image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_right.png);
+}
+
+QTreeWidget:branch:open:has-children:!has-siblings,
+QTreeWidget:branch:open:has-children:has-siblings  {
+        border-image: none;
+        image: url(X:/tools/Maya/windows/2016/python/studioLibs/qss/arrow_down.png);
+}
+
+/* --------------------------------------------------------------- */
+/* QScrollBar                                                      */
+/* --------------------------------------------------------------- */
+QScrollBar:vertical {
+	border: 1px solid #a0a0a0;
+	background: white;
+	width:10px;
+	margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+	background: #3498DB;
+	min-height: 20px;
+}
+
+QScrollBar::add-line:vertical {
+	height: 0px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+	height: 0px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+
+/* --------------------------------------------------------------- */
+QScrollBar:horizontal {
+	border: 1px solid #a0a0a0;
+	background: white;
+	height:10px;
+	margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:horizontal {
+	background: #3498DB;
+	min-width: 20px;
+}
+
+QScrollBar::add-line:horizontal {
+	height: 0px;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+	height: 0px;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+}
+
+/* --------------------------------------------------------------- */
+/* QProgressBar                                                    */
+/* --------------------------------------------------------------- */
+
+QProgressBar {
+	padding: 0px; 
+	border: 1px solid #2b2b2b; 
+	border-radius: 1px; 
+	background: #2b2b2b; 
+	text-align: center;
+}
+
+QProgressBar::chunk {
+	background-color: #5285a6;
+}
+
+
+/* --------------------------------------------------------------- */
+/* QMessageBox                                                     */
+/* --------------------------------------------------------------- */
+QMessageBox QPushButton {
+	padding: 4px; 
+	border-style: solid; 
+	border: 1px solid #a0a0a0; 
+	border-radius: 1px; 
+	background:#3498DB; 
+	min-height: 20px;
+	min-width: 80px;
+}
+
+
+/* --------------------------------------------------------------- */
+/* QTextEdit                                                       */
+/* --------------------------------------------------------------- */
+QTextEdit {
+	border: 1px solid #2b2b2b;
+	border-radius: 0px; 
+	background:#2b2b2b;
+	color: #bdbdbd; 
+}
+
