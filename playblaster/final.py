@@ -42,10 +42,10 @@ class PlayblasterFinalWnd(QDialog, flat.FlatWindow):
         self.fileName = fname
 
         # get shotgun user
-        self.shotgun = sh.studioShotgun("https://oamedia.shotgunstudio.com",
-                                        'maya',
-                                        '9e9d3222407460dfbf5383906a5a241b4020d79a25ba8c6b2411787ab6aa3974',
-                                        67)
+        self.shotgun = sh.studioShotgun("https:<your_site>.com",
+                                        '<key_name>',
+                                        '<key_id>',
+                                        '<int project_id>')
 
         self.userList = self.shotgun.getAllUsers()
        
