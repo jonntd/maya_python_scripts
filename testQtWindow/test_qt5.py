@@ -11,7 +11,7 @@ def getMayaWindow():
 class MyDialog(QDialog):
     def __init__(self, parent=getMayaWindow()):
         super(MyDialog, self).__init__(parent)
-        uic.loadUi('D:/kuzubov/py/test_qt6.ui', self)
+        uic.loadUi('test_qt5.ui', self)
 
         self.connect(self.spinbox, SIGNAL("valueChanged(int)"), self.log_to_console)
         self.connect(self.button,  SIGNAL("released()"),        self.push_me)
