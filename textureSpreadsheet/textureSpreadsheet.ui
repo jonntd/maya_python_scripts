@@ -118,7 +118,7 @@ QPushButton::pressed {
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../2014/icons/ic_highlight_remove_white_48dp.png</normaloff>../../2014/icons/ic_highlight_remove_white_48dp.png</iconset>
+             <normaloff>ico/ic_highlight_remove_white_48dp.png</normaloff>ico/ic_highlight_remove_white_48dp.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -152,7 +152,7 @@ QPushButton::pressed {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../2014/icons/centered1.png</pixmap>
+            <pixmap>ico/centered1.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -184,7 +184,7 @@ QPushButton::pressed {
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../2014/icons/ic_minimaze_white_48dp.png</normaloff>../../2014/icons/ic_minimaze_white_48dp.png</iconset>
+             <normaloff>ico/ic_minimaze_white_48dp.png</normaloff>ico/ic_minimaze_white_48dp.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -289,7 +289,7 @@ QPushButton::pressed {
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../../2014/icons/ic_check_box_outline_blank_grey600_48dp.png</normaloff>../../2014/icons/ic_check_box_outline_blank_grey600_48dp.png</iconset>
+                <normaloff>ico/ic_check_box_outline_blank_grey600_48dp.png</normaloff>ico/ic_check_box_outline_blank_grey600_48dp.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -333,7 +333,7 @@ QPushButton::pressed {
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../../2014/icons/ic_check_box_grey600_48dp.png</normaloff>../../2014/icons/ic_check_box_grey600_48dp.png</iconset>
+                <normaloff>ico/ic_check_box_grey600_48dp.png</normaloff>ico/ic_check_box_grey600_48dp.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -508,7 +508,7 @@ QPushButton::pressed {
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../../2014/icons/ic_check_box_outline_blank_grey600_48dp.png</normaloff>../../2014/icons/ic_check_box_outline_blank_grey600_48dp.png</iconset>
+                <normaloff>ico/ic_check_box_outline_blank_grey600_48dp.png</normaloff>ico/ic_check_box_outline_blank_grey600_48dp.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -552,7 +552,7 @@ QPushButton::pressed {
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../../2014/icons/ic_check_box_grey600_48dp.png</normaloff>../../2014/icons/ic_check_box_grey600_48dp.png</iconset>
+                <normaloff>ico/ic_check_box_grey600_48dp.png</normaloff>ico/ic_check_box_grey600_48dp.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -749,7 +749,7 @@ QPushButton::pressed {
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../../2014/icons/ic_cached_white_48dp.png</normaloff>../../2014/icons/ic_cached_white_48dp.png</iconset>
+             <normaloff>ico/ic_cached_white_48dp.png</normaloff>ico/ic_cached_white_48dp.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -869,7 +869,7 @@ QPushButton::pressed {
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>../icons/ic_folder_open_white_48dp.png</normaloff>../icons/ic_folder_open_white_48dp.png</iconset>
+             <normaloff>ico/ic_folder_open_white_48dp.png</normaloff>ico/ic_folder_open_white_48dp.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -1016,7 +1016,7 @@ QTreeView:item, QListView:item, QTableWidget:item {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>../../2014/icons/ic_corner_white_48dp.png</pixmap>
+            <pixmap>ico/ic_corner_white_48dp.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
